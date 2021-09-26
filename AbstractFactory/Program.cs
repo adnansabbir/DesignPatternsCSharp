@@ -1,4 +1,6 @@
 ﻿using System;
+using AbstractFactory.Classes;
+using AbstractFactory.Interfaces;
 
 namespace AbstractFactory
 {
@@ -6,7 +8,16 @@ namespace AbstractFactory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IContinent africa = new Africa();
+            IContinent america = new America();
+
+            AnimalWorld africanAnimalWorld = new AnimalWorld(africa);
+            AnimalWorld americanAnimalWorld = new AnimalWorld(america);
+
+            africanAnimalWorld.RunFoodChain();
+            americanAnimalWorld.RunFoodChain();
+
+            // Console.WriteLine("Hello World!");
         }
     }
 }
